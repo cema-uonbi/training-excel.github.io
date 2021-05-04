@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 AMR data and information | Data cleaning and reporting using Excel</title>
+  <meta name="description" content="Fleming fund" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 AMR data and information | Data cleaning and reporting using Excel" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Fleming fund" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 AMR data and information | Data cleaning and reporting using Excel" />
+  
+  <meta name="twitter:description" content="Fleming fund" />
+  
+
+<meta name="author" content="Washington State University- Global Health Program Kenya" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="data-collection-reporting-tools.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Project objectives</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#data-and-information-management"><i class="fa fa-check"></i><b>1.1</b> Data and Information Management</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="amr-data-and-information.html"><a href="amr-data-and-information.html"><i class="fa fa-check"></i><b>2</b> AMR data and information</a><ul>
+<li class="chapter" data-level="2.1" data-path="amr-data-and-information.html"><a href="amr-data-and-information.html#terms-used-in-data-management"><i class="fa fa-check"></i><b>2.1</b> Terms used in data management</a></li>
+<li class="chapter" data-level="2.2" data-path="amr-data-and-information.html"><a href="amr-data-and-information.html#amr-data-types-variables"><i class="fa fa-check"></i><b>2.2</b> AMR data types &amp; variables</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-collection-reporting-tools.html"><a href="data-collection-reporting-tools.html"><i class="fa fa-check"></i><b>3</b> Data collection &amp; reporting tools</a><ul>
+<li class="chapter" data-level="3.1" data-path="data-collection-reporting-tools.html"><a href="data-collection-reporting-tools.html#amr-data-governance-protection"><i class="fa fa-check"></i><b>3.1</b> AMR data governance &amp; protection</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="amr-data-analysis-and-reporting.html"><a href="amr-data-analysis-and-reporting.html"><i class="fa fa-check"></i><b>4</b> AMR Data Analysis and Reporting</a><ul>
+<li class="chapter" data-level="4.1" data-path="amr-data-analysis-and-reporting.html"><a href="amr-data-analysis-and-reporting.html#importance-of-amr-data-analysis"><i class="fa fa-check"></i><b>4.1</b> Importance of AMR data analysis</a></li>
+<li class="chapter" data-level="4.2" data-path="amr-data-analysis-and-reporting.html"><a href="amr-data-analysis-and-reporting.html#describe-data"><i class="fa fa-check"></i><b>4.2</b> Describe data</a></li>
+<li class="chapter" data-level="4.3" data-path="amr-data-analysis-and-reporting.html"><a href="amr-data-analysis-and-reporting.html#data-cleaning-filter"><i class="fa fa-check"></i><b>4.3</b> Data cleaning (filter)</a></li>
+<li class="chapter" data-level="4.4" data-path="amr-data-analysis-and-reporting.html"><a href="amr-data-analysis-and-reporting.html#data-cleaning-removing-duplicates"><i class="fa fa-check"></i><b>4.4</b> Data cleaning (removing duplicates)</a></li>
+<li class="chapter" data-level="4.5" data-path="amr-data-analysis-and-reporting.html"><a href="amr-data-analysis-and-reporting.html#data-cleaning-validation"><i class="fa fa-check"></i><b>4.5</b> Data cleaning (validation)</a></li>
+<li class="chapter" data-level="4.6" data-path="amr-data-analysis-and-reporting.html"><a href="amr-data-analysis-and-reporting.html#frequencies"><i class="fa fa-check"></i><b>4.6</b> Frequencies</a></li>
+<li class="chapter" data-level="4.7" data-path="amr-data-analysis-and-reporting.html"><a href="amr-data-analysis-and-reporting.html#general-tips-for-data-visualisation"><i class="fa fa-check"></i><b>4.7</b> General tips for data visualisation</a></li>
+<li class="chapter" data-level="4.8" data-path="amr-data-analysis-and-reporting.html"><a href="amr-data-analysis-and-reporting.html#bar-graphs"><i class="fa fa-check"></i><b>4.8</b> Bar graphs</a></li>
+<li class="chapter" data-level="4.9" data-path="amr-data-analysis-and-reporting.html"><a href="amr-data-analysis-and-reporting.html#histograms"><i class="fa fa-check"></i><b>4.9</b> Histograms</a></li>
+<li class="chapter" data-level="4.10" data-path="amr-data-analysis-and-reporting.html"><a href="amr-data-analysis-and-reporting.html#line-graphs"><i class="fa fa-check"></i><b>4.10</b> Line graphs</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data cleaning and reporting using Excel</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="amr-data-and-information" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> AMR data and information</h1>
+<ul>
+<li><p><strong>Data</strong> is raw facts (e.g the number of human and animal samples tested in a laboratory)</p></li>
+<li><p>Data becomes useful when it is converted into information through processing.</p></li>
+<li><p><strong>Information</strong> is what is represented by a sequence of data (e.g 14 rabies samples in an animal laboratory comprising of 75 samples accounts for 18.7% of samples )</p></li>
+<li><p>Information communicates messages that can influence an action (e.g there is need to investigate factors leading to low submission of rabies samples from a region that has high incidence of bite cases)</p></li>
+<li><p>Can you think of other examples of data, how it can be processed and used to influence policy?</p></li>
+</ul>
+<p>In AMR, data is important because it can be used to:</p>
+<ul>
+<li><p>Understand the common antibiotics being consumed by both the human and animal sector</p></li>
+<li><p>Assess the level of antibiotic use in both humans and animals</p></li>
+<li><p>Determine the factors associated with antimicrobial resistance</p></li>
+<li><p>Understand the hotspots with high incidences of superbugs in both the human and animal sector</p></li>
+<li><p>Can you think of other ways that we can use data to strengthen AMR and AMU/AMC surveillance system in both the human and animal sector?</p></li>
+</ul>
+<div id="terms-used-in-data-management" class="section level2">
+<h2><span class="header-section-number">2.1</span> Terms used in data management</h2>
+<ul>
+<li><p>As stated in the previous section, <strong>data</strong> is raw facts (e.g the number of human and animal samples tested in a laboratory)</p></li>
+<li><p>On the other hand, <strong>information</strong> is what is represented by a sequence of data (e.g 14 rabies samples in an animal laboratory comprising of 75 samples accounts for 18.7% of samples )</p></li>
+<li><p><strong>Dataset</strong> is a collection of related sets of information (e.g a dataset comprising of patient details that were collected through a study conducted last month)</p></li>
+<li><p><strong>Database</strong> is a structured set of data which can be stored in a computer or a server (e.g a database covering all the samples that have ever been tested in the laboratory)</p></li>
+<li><p><strong>Proportions</strong> is the comparative measurements of different parts of a whole (e.g the proportion of positive results from the rabies samples tested is increasing over time )</p></li>
+<li><p><strong>Validate</strong> is checking the accuracy of the data collected. This is mostly done in the data collection process. E.g instead of the data collectors typing the sex as either <em>Female</em> or <em>Male</em>, you may have a dropdown where they choose the option so that to reduce errors made in data entry. Another example may be capping the age of a dog so that someone does not enter an age more than 5 years as studies have shown the average life expectancy of a dog in Kenya is 2.4 -3.5 years depending on the gender <a href="https://www.sciencedirect.com/science/article/abs/pii/S0001706X01000821?via%3Dihub">1</a>.</p></li>
+<li><p>Data <strong>cleaning</strong> takes place after data is collected and this entails validation of data, removing any missing data, re-coding data (e.g if during data collection 1 represented Male and 2 represented Male, you revalue them) and basically arranging the data in the right format for data analysis- this can entail changing the data from a wide format to a long format, changing dates to a format that can be understood by the statistical tool you are using etc.</p></li>
+<li><p>After cleaning , data is now ready for <strong>analysis</strong>. In this step, the data is examined methodically and in detail in order to explain and interpret the data. For example, you may want to assess the level of antimicrobial use in animals so you can do this by examining the data collected and the samples presented in the laboratory in order to understand and interpret the patterns from the data.</p></li>
+<li><p>Once data is analysed, it is <strong>presented</strong> in a format that can be easily understood by the intended audience. This entails using tables, graphs- bar charts, maps, lines etc. format f</p></li>
+<li><p>It is common practice to <strong>store</strong> data to ensure there is retention of data in an electronic system for future use. The data can be stored in a server or in the computer. However, it is recommended that you store the data in a reliable place where you can still access the data even when you lose your computer. E.g an external hard drive that is frequently backed up, a cloud server e.g Dropbox</p></li>
+</ul>
+<p><strong>Of importance is to always ensure your data is accurate (validated), well cleaned, meticulously analysed and presented in a clear and easy manner to ascertain you have communicated to your audience.</strong></p>
+</div>
+<div id="amr-data-types-variables" class="section level2">
+<h2><span class="header-section-number">2.2</span> AMR data types &amp; variables</h2>
+<p><strong>Patient demographics</strong></p>
+<p>Data collected here will include the patientID, name, age, sex, occupation among others. For the human patients, we will also indicate if its an outpatient or an inpatient.</p>
+<p>Tests requested- To understand the type of specimen collected, we will need to have information on which test is requested for the patient or the animal.</p>
+<p>Data collected here will be on patientID, date and type of test requested</p>
+<p><strong>History of antibiotic use</strong></p>
+<p>To be able to understand the level of antimicrobial consumption/ use in a patient or animal, we need to have information on their history of antibiotic use.</p>
+<p>Here, the data collected will be patientID, antibiotic use in the last 1 month prior to the sample being collected, name of the antibiotic, duration consumed, what condition they were treating with the antibiotic, if self prescription or medical prescription, place of purchase etc.</p>
+<p><strong>Origin of infection</strong></p>
+<p>As previous literature has shown that an infection may be transmitted to someone from the community or while in hospital, we would like to collect information on when the clinical signs started manifesting.</p>
+<p>Data collected here will entail patientID, date of onset of symptoms, symptoms observed, place last visited before onset of symptoms (have a dropdown of potential areas that have a high likelihood of contracting an infection).</p>
+<p><strong>Type of specimen collected</strong></p>
+<p>The AMR surveillance system aims to collect blood, urine, stool specimens from both animal and human patients and genital swabs from human patients.</p>
+<p>The data collected will be patientID, specimenID, specimen type (blood, urine, stool specimens)</p>
+<p><strong>Bacteria analysis results</strong></p>
+<ul>
+<li>The surveillance system will gather data on resistance in 8 priority bacteria which will be detected in the specimens collected from both the human and animal sector. Once the specimen is cultured, the variables collected will be if the culture (which is linked to a human ID or an animal ID) is resistant or sensitive to <em>Escherichia coli</em>, <em>Klebsiella pneumoniae</em>, Acinectobacter* spp., <em>staphylococcus aureus</em>, <em>Streptococcus pneumoniae</em>, <em>Salmonella</em> spp, <em>Shigella</em> spp and <em>Neisseria gonorrhoeae</em>.The results here will be on the final culture and gram stain results.</li>
+</ul>
+<p>Data collected: specimenID, final culture results, gram stain results, antimicrobial susceptibility testing results</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-collection-reporting-tools.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 AMR Data Analysis and Reporting | Data cleaning and reporting using Excel</title>
+  <meta name="description" content="Fleming fund" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 AMR Data Analysis and Reporting | Data cleaning and reporting using Excel" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Fleming fund" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 AMR Data Analysis and Reporting | Data cleaning and reporting using Excel" />
+  
+  <meta name="twitter:description" content="Fleming fund" />
+  
+
+<meta name="author" content="Washington State University- Global Health Program Kenya" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-collection-reporting-tools.html"/>
+<link rel="next" href="data-cleaning.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> AMR data and information</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#terms-used-in-data-management"><i class="fa fa-check"></i><b>1.1</b> Terms used in data management</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#amr-data-types-variables"><i class="fa fa-check"></i><b>1.2</b> AMR data types &amp; variables</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="data-collection-reporting-tools.html"><a href="data-collection-reporting-tools.html"><i class="fa fa-check"></i><b>2</b> Data collection &amp; reporting tools</a><ul>
+<li class="chapter" data-level="2.1" data-path="data-collection-reporting-tools.html"><a href="data-collection-reporting-tools.html#amr-data-governance-protection"><i class="fa fa-check"></i><b>2.1</b> AMR data governance &amp; protection</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="amr-data-analysis-and-reporting.html"><a href="amr-data-analysis-and-reporting.html"><i class="fa fa-check"></i><b>3</b> AMR Data Analysis and Reporting</a><ul>
+<li class="chapter" data-level="3.1" data-path="amr-data-analysis-and-reporting.html"><a href="amr-data-analysis-and-reporting.html#importance-of-amr-data-analysis"><i class="fa fa-check"></i><b>3.1</b> Importance of AMR data analysis</a></li>
+<li class="chapter" data-level="3.2" data-path="amr-data-analysis-and-reporting.html"><a href="amr-data-analysis-and-reporting.html#describe-data"><i class="fa fa-check"></i><b>3.2</b> Describe data</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-cleaning.html"><a href="data-cleaning.html"><i class="fa fa-check"></i><b>4</b> Data cleaning</a><ul>
+<li class="chapter" data-level="4.1" data-path="data-cleaning.html"><a href="data-cleaning.html#data-cleaning-filter"><i class="fa fa-check"></i><b>4.1</b> Data cleaning (filter)</a></li>
+<li class="chapter" data-level="4.2" data-path="data-cleaning.html"><a href="data-cleaning.html#data-cleaning-removing-duplicates"><i class="fa fa-check"></i><b>4.2</b> Data cleaning (removing duplicates)</a></li>
+<li class="chapter" data-level="4.3" data-path="data-cleaning.html"><a href="data-cleaning.html#data-cleaning-validation"><i class="fa fa-check"></i><b>4.3</b> Data cleaning (validation)</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="descriptive-data-analysis.html"><a href="descriptive-data-analysis.html"><i class="fa fa-check"></i><b>5</b> Descriptive data analysis</a><ul>
+<li class="chapter" data-level="5.1" data-path="descriptive-data-analysis.html"><a href="descriptive-data-analysis.html#frequencies"><i class="fa fa-check"></i><b>5.1</b> Frequencies</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="presentation-of-amr-data.html"><a href="presentation-of-amr-data.html"><i class="fa fa-check"></i><b>6</b> Presentation of AMR data</a><ul>
+<li class="chapter" data-level="6.1" data-path="presentation-of-amr-data.html"><a href="presentation-of-amr-data.html#general-tips-for-data-visualisation"><i class="fa fa-check"></i><b>6.1</b> General tips for data visualisation</a></li>
+<li class="chapter" data-level="6.2" data-path="presentation-of-amr-data.html"><a href="presentation-of-amr-data.html#bar-graphs"><i class="fa fa-check"></i><b>6.2</b> Bar graphs</a></li>
+<li class="chapter" data-level="6.3" data-path="presentation-of-amr-data.html"><a href="presentation-of-amr-data.html#histograms"><i class="fa fa-check"></i><b>6.3</b> Histograms</a></li>
+<li class="chapter" data-level="6.4" data-path="presentation-of-amr-data.html"><a href="presentation-of-amr-data.html#line-graphs"><i class="fa fa-check"></i><b>6.4</b> Line graphs</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data cleaning and reporting using Excel</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="amr-data-analysis-and-reporting" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> AMR Data Analysis and Reporting</h1>
+<p><strong>Content Outline</strong></p>
+<ul>
+<li><p>Importance of AMR data analysis</p></li>
+<li><p>AMR data extraction (mining) and cleaning process</p></li>
+<li><p>Descriptive data analysis</p></li>
+<li><p>Presentation and reporting of AMR data</p></li>
+<li><p>Channels of sharing AMR reports among stakeholders</p></li>
+<li><p>Data storage and archival</p></li>
+</ul>
+<div id="importance-of-amr-data-analysis" class="section level2">
+<h2><span class="header-section-number">3.1</span> Importance of AMR data analysis</h2>
+<ul>
+<li><p>Data analysis is the procedure of processing raw data to generate useful information for guiding decision making or planning.</p></li>
+<li><p>It involves application of various analytical methods using tools like Excel, SAS, SPSS, R among others.</p></li>
+<li><p>Data analysis is important for:</p>
+<ul>
+<li>Planning and decision making</li>
+<li>Identifying patterns and trends of occurrences or events</li>
+</ul></li>
+</ul>
+<p>The steps for data analysis involve:</p>
+<ol style="list-style-type: decimal">
+<li><p>Describing the data</p></li>
+<li><p>Data cleaning</p></li>
+<li><p>Descriptive data analysis</p></li>
+</ol>
+<p>For this steps, we will use Excel which is the common tool used to store and carry out wuick descriptive analysis.</p>
+</div>
+<div id="describe-data" class="section level2">
+<h2><span class="header-section-number">3.2</span> Describe data</h2>
+<ul>
+<li>Here, we open the data and try to understand what data is contained in the Excel file. What can you describe from the image below? (<em>Which facility is the data from? What kind of patient demographics are illustrated? What type of specimens have been collected? Can you see any AST results?</em>)</li>
+</ul>
+<p><img src="images/excel_data.png" style="width:70.0%" /></p>
+<!-- ![Source:Ministry of Health & Ministry of Agriculture Livestock & Fisheries, "National Antimicrobial Resistance Surveillance Training Curriculum: Participant Manual", 2020](images/excel_data.png?display=inline-block){width=10%}   -->
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-collection-reporting-tools.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-cleaning.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/02-Datamanipulation.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

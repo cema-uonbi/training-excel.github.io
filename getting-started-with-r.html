@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Getting started with R | Data Wrangling and Analysis with R</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Getting started with R | Data Wrangling and Analysis with R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Getting started with R | Data Wrangling and Analysis with R" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Centre for Epidemiological Modelling and Analysis" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="data-manipulation-in-r.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#why-r"><i class="fa fa-check"></i><b>1.1</b> Why R?</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#what-can-r-do"><i class="fa fa-check"></i><b>1.2</b> What can R do?</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#basics-of-r"><i class="fa fa-check"></i><b>1.3</b> Basics of R</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#the-r-console"><i class="fa fa-check"></i><b>1.4</b> The <strong>R</strong> console</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#r-workspaces"><i class="fa fa-check"></i><b>1.5</b> R workspaces</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#useful-tips-for-r"><i class="fa fa-check"></i><b>1.6</b> Useful tips for <strong>R</strong></a></li>
+<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#r-resources-and-finding-help"><i class="fa fa-check"></i><b>1.7</b> <strong>R</strong> resources and finding help</a></li>
+<li class="chapter" data-level="1.8" data-path="index.html"><a href="index.html#r-architecture"><i class="fa fa-check"></i><b>1.8</b> <strong>R</strong> architecture</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html"><i class="fa fa-check"></i><b>2</b> Getting started with R</a><ul>
+<li class="chapter" data-level="2.1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#installing-and-using-r-packages"><i class="fa fa-check"></i><b>2.1</b> Installing and using <strong>R</strong> packages</a></li>
+<li class="chapter" data-level="2.2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#creating-objects-in-r"><i class="fa fa-check"></i><b>2.2</b> Creating objects in <strong>R</strong></a></li>
+<li class="chapter" data-level="2.3" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#functions-in-r"><i class="fa fa-check"></i><b>2.3</b> Functions in <strong>R</strong></a></li>
+<li class="chapter" data-level="2.4" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#data-types-and-importation"><i class="fa fa-check"></i><b>2.4</b> Data types and importation</a></li>
+<li class="chapter" data-level="2.5" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#importing-and-data-manipulation-in-r"><i class="fa fa-check"></i><b>2.5</b> Importing and Data manipulation in R</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#in-built-datasets"><i class="fa fa-check"></i><b>2.5.1</b> In-built datasets</a></li>
+<li class="chapter" data-level="2.5.2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#import-data-from-external-files"><i class="fa fa-check"></i><b>2.5.2</b> Import data from ``external" files</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html"><i class="fa fa-check"></i><b>3</b> Data Manipulation in R</a><ul>
+<li class="chapter" data-level="3.1" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#dereferencing"><i class="fa fa-check"></i><b>3.1</b> Dereferencing</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#merging-data"><i class="fa fa-check"></i><b>3.1.1</b> Merging data</a></li>
+<li class="chapter" data-level="3.1.2" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#subsetting-data"><i class="fa fa-check"></i><b>3.1.2</b> Subsetting data</a></li>
+<li class="chapter" data-level="3.1.3" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#substring"><i class="fa fa-check"></i><b>3.1.3</b> Substring</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>4</b> Data wrangling</a><ul>
+<li class="chapter" data-level="4.1" data-path="data-wrangling.html"><a href="data-wrangling.html#tools-for-manipulating-data"><i class="fa fa-check"></i><b>4.1</b> Tools for manipulating data</a></li>
+<li class="chapter" data-level="4.2" data-path="data-wrangling.html"><a href="data-wrangling.html#making-datasets-tidy"><i class="fa fa-check"></i><b>4.2</b> Making datasets tidy</a></li>
+<li class="chapter" data-level="4.3" data-path="data-wrangling.html"><a href="data-wrangling.html#pipes-in-r"><i class="fa fa-check"></i><b>4.3</b> Pipes in R %&gt;%</a></li>
+<li class="chapter" data-level="4.4" data-path="data-wrangling.html"><a href="data-wrangling.html#gather"><i class="fa fa-check"></i><b>4.4</b> gather()</a></li>
+<li class="chapter" data-level="4.5" data-path="data-wrangling.html"><a href="data-wrangling.html#grouping-data"><i class="fa fa-check"></i><b>4.5</b> Grouping data</a></li>
+<li class="chapter" data-level="4.6" data-path="data-wrangling.html"><a href="data-wrangling.html#separate"><i class="fa fa-check"></i><b>4.6</b> separate()</a></li>
+<li class="chapter" data-level="4.7" data-path="data-wrangling.html"><a href="data-wrangling.html#a-sample-data-set"><i class="fa fa-check"></i><b>4.7</b> A sample data set</a></li>
+<li class="chapter" data-level="4.8" data-path="data-wrangling.html"><a href="data-wrangling.html#summarise"><i class="fa fa-check"></i><b>4.8</b> summarise()</a></li>
+<li class="chapter" data-level="4.9" data-path="data-wrangling.html"><a href="data-wrangling.html#filter-rowsobservations-with-matching-conditions"><i class="fa fa-check"></i><b>4.9</b> filter() rows/observations with matching conditions</a></li>
+<li class="chapter" data-level="4.10" data-path="data-wrangling.html"><a href="data-wrangling.html#distinct"><i class="fa fa-check"></i><b>4.10</b> distinct()</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Wrangling and Analysis with R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="getting-started-with-r" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Getting started with R</h1>
+<div id="installing-and-using-r-packages" class="section level2">
+<h2><span class="header-section-number">2.1</span> Installing and using <strong>R</strong> packages</h2>
+<p>R comes with some preinstalled packages. In order to use functions from a contributed package, for example epidemiological package <a href="http://cran.r-project.org/web/packages/epicalc/epicalc.pdf">epitools</a>, which is not preinstalled with R, we need to first install the package. To install the package - type as below in the  console</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="getting-started-with-r.html#cb1-1"></a><span class="co">#install.packages(&quot;epitools&quot;)</span></span></code></pre></div>
+<p>If installing more than one package (also install the AMR <a href="https://cran.r-project.org/web/packages/AMR/index.html">AMR: Antimicrobial Resistance Analysis</a>, use the code below:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="getting-started-with-r.html#cb2-1"></a><span class="co">#install.packages(c(&quot;epitools&quot;,&quot;AMR&quot;))</span></span></code></pre></div>
+<p>To call the two packages you’ve installed into the  environment, use the codes:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="getting-started-with-r.html#cb3-1"></a><span class="kw">library</span>(epitools)</span>
+<span id="cb3-2"><a href="getting-started-with-r.html#cb3-2"></a><span class="kw">library</span>(AMR)</span>
+<span id="cb3-3"><a href="getting-started-with-r.html#cb3-3"></a></span>
+<span id="cb3-4"><a href="getting-started-with-r.html#cb3-4"></a><span class="co">## alternatively</span></span>
+<span id="cb3-5"><a href="getting-started-with-r.html#cb3-5"></a><span class="kw">require</span>(epitools)</span>
+<span id="cb3-6"><a href="getting-started-with-r.html#cb3-6"></a><span class="kw">require</span>(AMR)</span></code></pre></div>
+<p>To tell which packages have been loaded in the <strong>R</strong> environment use the command</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="getting-started-with-r.html#cb4-1"></a><span class="kw">search</span>()</span></code></pre></div>
+<pre><code>##  [1] &quot;.GlobalEnv&quot;        &quot;package:AMR&quot;       &quot;package:epitools&quot; 
+##  [4] &quot;package:stats&quot;     &quot;package:graphics&quot;  &quot;package:grDevices&quot;
+##  [7] &quot;package:utils&quot;     &quot;package:datasets&quot;  &quot;package:methods&quot;  
+## [10] &quot;Autoloads&quot;         &quot;package:base&quot;</code></pre>
+<p>To learn more about a package eg. AMR, one can check for the reference manual using <a href="http://www.rseek.org">Rseek</a> or use the code</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="getting-started-with-r.html#cb6-1"></a><span class="kw">help</span>(<span class="dt">package=</span>AMR)</span></code></pre></div>
+<p>For information on the function  in the package , use</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="getting-started-with-r.html#cb7-1"></a>?as.mo</span></code></pre></div>
+<p>The command provides a description of the function, its usage, author(s) etc, and (very helpful) examples on how to use the function.</p>
+</div>
+<div id="creating-objects-in-r" class="section level2">
+<h2><span class="header-section-number">2.2</span> Creating objects in <strong>R</strong></h2>
+<p>An object is anything that takes a value. You can create objects by telling <strong>R</strong> to read a file, for example a .csv file from UCLA site as shown below, and assign the object a name, e.g. dat1</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="getting-started-with-r.html#cb8-1"></a>dat1 &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;https://stats.idre.ucla.edu/stat/data/binary.csv&quot;</span>)</span></code></pre></div>
+<p>Object <strong>dat1</strong> now exists in the workspace. To view the first few rows of the data (default first 6 rows)</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="getting-started-with-r.html#cb9-1"></a><span class="kw">head</span>(dat1)</span></code></pre></div>
+<pre><code>##   admit gre  gpa rank
+## 1     0 380 3.61    3
+## 2     1 660 3.67    3
+## 3     1 800 4.00    1
+## 4     1 640 3.19    4
+## 5     0 520 2.93    4
+## 6     1 760 3.00    2</code></pre>
+<p>Supposing we want a vector of the sequence of numericals 1 to 100, as an object called <strong>dat2</strong></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="getting-started-with-r.html#cb11-1"></a>dat2 &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">100</span>)</span>
+<span id="cb11-2"><a href="getting-started-with-r.html#cb11-2"></a>dat2</span></code></pre></div>
+<pre><code>##   [1]   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18
+##  [19]  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36
+##  [37]  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53  54
+##  [55]  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72
+##  [73]  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90
+##  [91]  91  92  93  94  95  96  97  98  99 100</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="getting-started-with-r.html#cb13-1"></a><span class="co"># check more possibilities of the function &quot;seq&quot;</span></span>
+<span id="cb13-2"><a href="getting-started-with-r.html#cb13-2"></a>?seq</span></code></pre></div>
+<p>To assign a vector of e.g.  to an object named  (an array), you will need to use the </p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="getting-started-with-r.html#cb14-1"></a><span class="kw">c</span>()</span></code></pre></div>
+<pre><code>## NULL</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="getting-started-with-r.html#cb16-1"></a>dat3 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">15</span>)</span>
+<span id="cb16-2"><a href="getting-started-with-r.html#cb16-2"></a>dat3</span></code></pre></div>
+<pre><code>## [1]  2  3  6 15</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="getting-started-with-r.html#cb18-1"></a><span class="co"># You can add a constant to each member of the array</span></span>
+<span id="cb18-2"><a href="getting-started-with-r.html#cb18-2"></a>dat3 <span class="op">+</span><span class="st"> </span><span class="dv">8</span></span></code></pre></div>
+<pre><code>## [1] 10 11 14 23</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="getting-started-with-r.html#cb20-1"></a>dat3 <span class="op">+</span><span class="st"> </span><span class="dv">7</span><span class="op">/</span><span class="dv">5</span></span></code></pre></div>
+<pre><code>## [1]  3.4  4.4  7.4 16.4</code></pre>
+<p>To assign characters/names to an object:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="getting-started-with-r.html#cb22-1"></a>dat4 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;two&quot;</span>,<span class="st">&quot;three&quot;</span>,<span class="st">&quot;six&quot;</span>,<span class="st">&quot;fifteen&quot;</span>)</span>
+<span id="cb22-2"><a href="getting-started-with-r.html#cb22-2"></a>dat4</span></code></pre></div>
+<pre><code>## [1] &quot;two&quot;     &quot;three&quot;   &quot;six&quot;     &quot;fifteen&quot;</code></pre>
+<p>You may want to form a data frame <em>dat5</em> from objects <em>dat3</em> and <em>dat4</em></p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="getting-started-with-r.html#cb24-1"></a>dat5 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(dat4,dat3)</span>
+<span id="cb24-2"><a href="getting-started-with-r.html#cb24-2"></a>dat5</span></code></pre></div>
+<pre><code>##      dat4 dat3
+## 1     two    2
+## 2   three    3
+## 3     six    6
+## 4 fifteen   15</code></pre>
+<p>We will do much more of these during data importation and manipulation</p>
+</div>
+<div id="functions-in-r" class="section level2">
+<h2><span class="header-section-number">2.3</span> Functions in <strong>R</strong></h2>
+<p>So far we have created objects, viewed them, manipulated them and even destroyed/removed them from the workspace. More interest lies in using the objects for data analysis!</p>
+<p><strong>R functions</strong> are a special type of object with power to change or manipulate other objects. If say we were interested in finding the mean of the array <strong>dat3</strong> created previously, we would use a <em>base R</em> function by the same name <em>“mean”</em></p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="getting-started-with-r.html#cb26-1"></a>dat3</span></code></pre></div>
+<pre><code>## [1]  2  3  6 15</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="getting-started-with-r.html#cb28-1"></a><span class="kw">mean</span>(dat3)</span></code></pre></div>
+<pre><code>## [1] 6.5</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="getting-started-with-r.html#cb30-1"></a><span class="co">## try a few other R functions - most of all self explanatory</span></span>
+<span id="cb30-2"><a href="getting-started-with-r.html#cb30-2"></a><span class="kw">sum</span>(dat3) </span></code></pre></div>
+<pre><code>## [1] 26</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="getting-started-with-r.html#cb32-1"></a><span class="kw">max</span>(dat3)</span></code></pre></div>
+<pre><code>## [1] 15</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="getting-started-with-r.html#cb34-1"></a><span class="kw">min</span>(dat3)</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="getting-started-with-r.html#cb36-1"></a><span class="kw">length</span>(dat3)</span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="getting-started-with-r.html#cb38-1"></a><span class="kw">sqrt</span>(dat3)</span></code></pre></div>
+<pre><code>## [1] 1.414214 1.732051 2.449490 3.872983</code></pre>
+<p>We can find more summary measures of <em>dat3</em> by using functions such as:</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="getting-started-with-r.html#cb40-1"></a><span class="kw">summary</span>(dat3)</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##    2.00    2.75    4.50    6.50    8.25   15.00</code></pre>
+<p>We can do a little more with several of these functions, for example</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="getting-started-with-r.html#cb42-1"></a><span class="kw">sum</span>(dat3)<span class="op">/</span><span class="kw">length</span>(dat3)</span></code></pre></div>
+<pre><code>## [1] 6.5</code></pre>
+<p>Even better determine the standard deviation of <em>dat3</em> without using the <em>base R function “sd”</em> by writing out the standard deviation formula in <em>R language</em></p>
+<p></p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="getting-started-with-r.html#cb44-1"></a><span class="kw">sqrt</span>(<span class="kw">sum</span>((dat3 <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(dat3))<span class="op">^</span><span class="st"> </span><span class="dv">2</span>)<span class="op">/</span>(<span class="kw">length</span>(dat3) <span class="op">-</span><span class="st"> </span><span class="dv">1</span>))</span></code></pre></div>
+<pre><code>## [1] 5.91608</code></pre>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="getting-started-with-r.html#cb46-1"></a><span class="co"># same result while using the sd function in base R for standard deviation</span></span>
+<span id="cb46-2"><a href="getting-started-with-r.html#cb46-2"></a><span class="kw">sd</span>(dat3)</span></code></pre></div>
+<pre><code>## [1] 5.91608</code></pre>
+</div>
+<div id="data-types-and-importation" class="section level2">
+<h2><span class="header-section-number">2.4</span> Data types and importation</h2>
+<p><strong>Data types</strong></p>
+<p>A dataset may contain variables with different data types (e.g dates, numerical numbers, categorical values etc) - these require varying treatment during statistical analysis. R comfortably handles various data types including these common ones:</p>
+<ul>
+<li><strong>Doubles</strong> - these represent continuous variables - as weight/height/length/width of an object, animal, person. You can determine if a number is a double using a logical question</li>
+</ul>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="getting-started-with-r.html#cb48-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">3.14</span>,<span class="fl">5.7</span>)</span>
+<span id="cb48-2"><a href="getting-started-with-r.html#cb48-2"></a></span>
+<span id="cb48-3"><a href="getting-started-with-r.html#cb48-3"></a><span class="kw">is.double</span>(x)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="getting-started-with-r.html#cb50-1"></a><span class="kw">typeof</span>(x)</span></code></pre></div>
+<pre><code>## [1] &quot;double&quot;</code></pre>
+<ul>
+<li><strong>Integers</strong> - these are natural numbers, eg counting variables - number of black rhinos at the Mt Kenya National Park</li>
+</ul>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="getting-started-with-r.html#cb52-1"></a>nrhinos &lt;-<span class="st"> </span><span class="kw">as.integer</span>(<span class="dv">88</span>)</span>
+<span id="cb52-2"><a href="getting-started-with-r.html#cb52-2"></a><span class="kw">typeof</span>(nrhinos)</span></code></pre></div>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="getting-started-with-r.html#cb54-1"></a>nrhinos &lt;-<span class="st"> </span><span class="fl">88.0</span></span>
+<span id="cb54-2"><a href="getting-started-with-r.html#cb54-2"></a><span class="kw">is.integer</span>(nrhinos)</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<ul>
+<li><strong>Logical</strong> - this data type takes the values FALSE or TRUE, and indicates if a condition is true or false (logical expressions)</li>
+</ul>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="getting-started-with-r.html#cb56-1"></a>g &lt;-<span class="st"> </span><span class="dv">99</span></span>
+<span id="cb56-2"><a href="getting-started-with-r.html#cb56-2"></a>h &lt;-<span class="st"> </span>g <span class="op">&lt;</span><span class="st"> </span><span class="dv">88</span></span>
+<span id="cb56-3"><a href="getting-started-with-r.html#cb56-3"></a>h</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>The logical expressions are built from logical operators</p>
+<ul>
+<li><p><span class="math inline">\(&gt;\)</span> greater than</p></li>
+<li><p><span class="math inline">\(&lt;\)</span> less than</p></li>
+<li><p><span class="math inline">\(&gt;=\)</span> greater than or equal to</p></li>
+<li><p><span class="math inline">\(&lt;=\)</span> less than or equal to</p></li>
+<li><p><span class="math inline">\(==\)</span> is equal to</p></li>
+<li><p><span class="math inline">\(!=\)</span> is unequal to</p></li>
+<li><p>&amp; and</p></li>
+<li><p><span class="math inline">\(!\)</span> not</p></li>
+<li><p><strong>Characters</strong> - represents a collection of characters between double quotes</p></li>
+</ul>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="getting-started-with-r.html#cb58-1"></a>rstudents &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Elk&quot;</span>,<span class="st">&quot;Dun&quot;</span>,<span class="st">&quot;Sar&quot;</span>,<span class="st">&quot;Mik&quot;</span>)</span>
+<span id="cb58-2"><a href="getting-started-with-r.html#cb58-2"></a>rstudents</span></code></pre></div>
+<pre><code>## [1] &quot;Elk&quot; &quot;Dun&quot; &quot;Sar&quot; &quot;Mik&quot;</code></pre>
+<ul>
+<li><strong>Factor</strong> - represents categorical data - the value range of which is a collection of codes, eg sex - male/female, education - informal/formal, infection status - positive/negative ..etc. Individual code of the factor is called <strong>level</strong> of the factor</li>
+</ul>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="getting-started-with-r.html#cb60-1"></a>educ &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;primary&quot;</span>,<span class="st">&quot;secondary&quot;</span>,<span class="st">&quot;primary&quot;</span>,<span class="st">&quot;university&quot;</span>,</span>
+<span id="cb60-2"><a href="getting-started-with-r.html#cb60-2"></a>                 <span class="st">&quot;no education&quot;</span>,<span class="st">&quot;secondary&quot;</span>))</span>
+<span id="cb60-3"><a href="getting-started-with-r.html#cb60-3"></a>educ</span></code></pre></div>
+<pre><code>## [1] primary      secondary    primary      university   no education
+## [6] secondary   
+## Levels: no education primary secondary university</code></pre>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="getting-started-with-r.html#cb62-1"></a><span class="kw">levels</span>(educ)</span></code></pre></div>
+<pre><code>## [1] &quot;no education&quot; &quot;primary&quot;      &quot;secondary&quot;    &quot;university&quot;</code></pre>
+<p>So far we have worked with vectors, arrays and data frames. Data frames have columns which may contain different data types, and are the convinient data structure for analysis in R. The rest of the R course will mainly use data frames!</p>
+</div>
+<div id="importing-and-data-manipulation-in-r" class="section level2">
+<h2><span class="header-section-number">2.5</span> Importing and Data manipulation in R</h2>
+<p>Data may be imported into R using two ways:</p>
+<ol style="list-style-type: decimal">
+<li>Accessing datasets ``built in" R which come as part of a libraries loaded into the console</li>
+<li>Importing data from external data files (eg Excel spreadsheets, Access databases, MySQL, text files, spss files, sas files…etc)</li>
+</ol>
+<div id="in-built-datasets" class="section level3">
+<h3><span class="header-section-number">2.5.1</span> In-built datasets</h3>
+<ul>
+<li>These are datasets that come together with installed R libraries. To see a list of all available in-built datasets and a short-description of each use:</li>
+</ul>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="getting-started-with-r.html#cb64-1"></a><span class="kw">data</span>()</span></code></pre></div>
+<ul>
+<li>Bring in the data <strong>WHONET</strong> - dataset with exact structure as an export from WHONET (AMR data).</li>
+</ul>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="getting-started-with-r.html#cb65-1"></a><span class="kw">data</span>(WHONET)</span>
+<span id="cb65-2"><a href="getting-started-with-r.html#cb65-2"></a>?WHONET</span>
+<span id="cb65-3"><a href="getting-started-with-r.html#cb65-3"></a><span class="kw">head</span>(WHONET,<span class="dv">4</span>)</span></code></pre></div>
+<pre><code>##   Identification number Specimen number Organism         Country
+## 1            fe41d7bafa            1748      SPN         Belgium
+## 2            91f175ec37            1767      eco The Netherlands
+## 3            cc4015056e            1343      eco The Netherlands
+## 4            e864b692f5            1894      MAP         Denmark
+##                               Laboratory  Last name First name Sex Age
+## 1         National Laboratory of Belgium       Abel         B.   F  68
+## 2 National Laboratory of The Netherlands  Delacroix         F.   M  89
+## 3 National Laboratory of The Netherlands   Steensen         F.   M  85
+## 4         National Laboratory of Denmark Beyersdorf         L.   M  62
+##   Age category Date of admission Specimen date Specimen type
+## 1        55-74        2005-01-12    2005-01-30         Urine
+## 2          75+        2006-07-30    2006-08-16         Urine
+## 3          75+        2014-03-05    2014-03-14         Urine
+## 4        55-74        2014-10-22    2014-11-01         Urine
+##   Specimen type (Numeric)  Reason Isolate number Organism type Serotype
+## 1                       2 Unknown           1748      Bacteria         
+## 2                       2 Unknown           1767      Bacteria         
+## 3                       2 Unknown           1343      Bacteria         
+## 4                       2 Unknown           1894      Bacteria         
+##   Beta-lactamase  ESBL Carbapenemase MRSA screening test
+## 1          FALSE FALSE         FALSE               FALSE
+## 2          FALSE FALSE         FALSE               FALSE
+## 3          FALSE FALSE         FALSE               FALSE
+## 4          FALSE FALSE         FALSE               FALSE
+##   Inducible clindamycin resistance Comment Date of data entry AMP_ND10 AMC_ED20
+## 1                            FALSE                 2005-01-30        S        S
+## 2                            FALSE                 2006-08-16     &lt;NA&gt;        S
+## 3                            FALSE                 2014-03-14        S        S
+## 4                            FALSE                 2014-11-01        R     &lt;NA&gt;
+##   TZP_ED30 FEP_ED30 CTX_ED5 FOX_ED30 CAZ_ED10 CRO_ED30 CIP_ED5 AMK_ED30
+## 1        S     &lt;NA&gt;    &lt;NA&gt;     &lt;NA&gt;        R     &lt;NA&gt;    &lt;NA&gt;     &lt;NA&gt;
+## 2     &lt;NA&gt;     &lt;NA&gt;    &lt;NA&gt;     &lt;NA&gt;        R     &lt;NA&gt;    &lt;NA&gt;     &lt;NA&gt;
+## 3        S     &lt;NA&gt;    &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;    &lt;NA&gt;     &lt;NA&gt;
+## 4     &lt;NA&gt;     &lt;NA&gt;    &lt;NA&gt;     &lt;NA&gt;        R     &lt;NA&gt;    &lt;NA&gt;     &lt;NA&gt;
+##   GEN_ED10 TOB_ED10 SXT_ED1.2 IPM_ND10 PEN_ND1 AMP_ND2 AMC_ND2 CHL_ND30 VAN_ED5
+## 1        R        R         S     &lt;NA&gt;       S       S       S     &lt;NA&gt;       S
+## 2        S     &lt;NA&gt;         R     &lt;NA&gt;       R    &lt;NA&gt;       S     &lt;NA&gt;       S
+## 3     &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;     &lt;NA&gt;       S       S       S     &lt;NA&gt;    &lt;NA&gt;
+## 4        R        R      &lt;NA&gt;     &lt;NA&gt;       R       R    &lt;NA&gt;     &lt;NA&gt;    &lt;NA&gt;
+##   OXA_ED1 ERY_ED15 CLI_ED2 TCY_ED30 RIF_ED5 PEN_EE AMP_EE CRO_EE CIP_EE
+## 1    &lt;NA&gt;        S    &lt;NA&gt;        S    &lt;NA&gt;      S      S   &lt;NA&gt;   &lt;NA&gt;
+## 2    &lt;NA&gt;        S       S        S    &lt;NA&gt;      R   &lt;NA&gt;   &lt;NA&gt;   &lt;NA&gt;
+## 3    &lt;NA&gt;     &lt;NA&gt;       S     &lt;NA&gt;    &lt;NA&gt;      S      S   &lt;NA&gt;   &lt;NA&gt;
+## 4    &lt;NA&gt;     &lt;NA&gt;       S     &lt;NA&gt;    &lt;NA&gt;      R      R   &lt;NA&gt;   &lt;NA&gt;</code></pre>
+</div>
+<div id="import-data-from-external-files" class="section level3">
+<h3><span class="header-section-number">2.5.2</span> Import data from ``external" files</h3>
+<ul>
+<li><p>These data could be in different formats including:</p></li>
+<li><p><strong>Comma separated values .csv files</strong>: a very easy one to deal with. Save your data as a .csv file</p></li>
+</ul>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="getting-started-with-r.html#cb67-1"></a><span class="co"># mydata1 &lt;- read.csv(file.choose(), header=TRUE)</span></span></code></pre></div>
+<ul>
+<li><p>read.csv - is the function that instructs R that the data is saved as a .csv format, and use:</p></li>
+<li><p><em>file.choose</em> - opens a browser window enabling you to locate where the file is sitted</p></li>
+<li><p><em>header=TRUE</em> - instructs R to take the first row to contain the variable names</p></li>
+<li><p><strong>Text files</strong> - imported much the same way as above, using the function <strong>read.table</strong>, check</p></li>
+</ul>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="getting-started-with-r.html#cb68-1"></a>?read.table</span></code></pre></div>
+<ul>
+<li><p><strong>Excel files</strong> you will need the package <strong>xlsReadWrite</strong> and you will use the functions <strong>read.xls</strong> and <strong>write.xls</strong></p></li>
+<li><p><strong>Databases</strong>: uses the following packages</p></li>
+<li><p><em>RODBC</em> - provide an interface for ODBC compliant databases (eg. MS Access, MS SQLServer, Oracle)</p></li>
+<li><p><em>RMySQL</em> - provide an interface to a MySQL database</p></li>
+<li><p><em>RSQLite</em> - interface with SQLite</p></li>
+<li><p>Example working with MS-Access database using ODBC:</p></li>
+</ul>
+<p>If working on a windows machine, need to set up “Data Source Name”:</p>
+<ul>
+<li><p>Control Panel <span class="math inline">\(&gt;\)</span> select - Administrative Tools - <span class="math inline">\(&gt;\)</span> and select - Data Sources (ODBC)</p></li>
+<li><p>In the tab - User DSN - click the “Add” button, select the MS Access driver and click “Finish”</p></li>
+<li><p>Now choose a name for the data source, say, “MyAccessD” and select the MS Access database file</p></li>
+</ul>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="getting-started-with-r.html#cb69-1"></a> <span class="co"># connect to the database</span></span>
+<span id="cb69-2"><a href="getting-started-with-r.html#cb69-2"></a> <span class="co"># library(RODBC)</span></span>
+<span id="cb69-3"><a href="getting-started-with-r.html#cb69-3"></a> <span class="co"># database: uid - user ID, pwd = password</span></span>
+<span id="cb69-4"><a href="getting-started-with-r.html#cb69-4"></a> <span class="co"># ideal &lt;- odbcConnect(&quot;ideal&quot;, uid=&quot;admin&quot;, pwd=&quot;IDEAL2008&quot;)</span></span>
+<span id="cb69-5"><a href="getting-started-with-r.html#cb69-5"></a> <span class="co"># to get the all the tables in the database use</span></span>
+<span id="cb69-6"><a href="getting-started-with-r.html#cb69-6"></a> <span class="co"># alltables &lt;- sqlTables(ideal)</span></span>
+<span id="cb69-7"><a href="getting-started-with-r.html#cb69-7"></a> <span class="co"># get a table named &quot;TblCalfLosses&quot; - use function sqlFetch</span></span>
+<span id="cb69-8"><a href="getting-started-with-r.html#cb69-8"></a> <span class="co"># calfloss &lt;- sqlFetch(ideal, &quot;TblCalfLosses&quot;)</span></span></code></pre></div>
+<ul>
+<li>You can submit an SQL query to the database</li>
+</ul>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="getting-started-with-r.html#cb70-1"></a><span class="co"># write the query</span></span>
+<span id="cb70-2"><a href="getting-started-with-r.html#cb70-2"></a><span class="co"># query1 &lt;- &quot;SELECT* from TblCalfLosses where survivalstatus = &#39;died&#39;&quot;</span></span>
+<span id="cb70-3"><a href="getting-started-with-r.html#cb70-3"></a><span class="co"># sqlQuery(ideal, query1)</span></span></code></pre></div>
+<ul>
+<li>If reading data from a MySQL database, the codes would look like:</li>
+</ul>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="getting-started-with-r.html#cb71-1"></a><span class="co"># use the library RMySQL</span></span>
+<span id="cb71-2"><a href="getting-started-with-r.html#cb71-2"></a><span class="co"># library(RMySQL)</span></span>
+<span id="cb71-3"><a href="getting-started-with-r.html#cb71-3"></a><span class="co"># con1 &lt;- dbConnect(MySQL(), user=&#39;&#39;, password=&#39;&#39;, dbname=&#39;&#39;, host=&#39;&#39;)</span></span></code></pre></div>
+<ul>
+<li>Use the connection created <em>con1</em>, and access a table in the database named eg. ``tblsampleregitstration"</li>
+</ul>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="getting-started-with-r.html#cb72-1"></a><span class="co"># sample registration data</span></span>
+<span id="cb72-2"><a href="getting-started-with-r.html#cb72-2"></a><span class="co"># samplereg &lt;- dbReadTable(con1,&quot;tblsampleregistration&quot;)</span></span>
+<span id="cb72-3"><a href="getting-started-with-r.html#cb72-3"></a></span>
+<span id="cb72-4"><a href="getting-started-with-r.html#cb72-4"></a><span class="co"># If only interested in columns 2,3 and 6 in the table samplereg</span></span>
+<span id="cb72-5"><a href="getting-started-with-r.html#cb72-5"></a></span>
+<span id="cb72-6"><a href="getting-started-with-r.html#cb72-6"></a><span class="co"># sample registration data</span></span>
+<span id="cb72-7"><a href="getting-started-with-r.html#cb72-7"></a><span class="co"># samplereg &lt;- sampleref[,c(2,3,6)]</span></span></code></pre></div>
+<ul>
+<li><p>Importing from <strong>other statistical softwares</strong> such as S, SAS, Epi info, Stata, SPSS, dBase…etc</p></li>
+<li><p>The <em>library(foreign)</em> contains functions to read data saved in formats used by softwares above</p></li>
+</ul>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="getting-started-with-r.html#cb73-1"></a><span class="kw">library</span>(foreign)</span>
+<span id="cb73-2"><a href="getting-started-with-r.html#cb73-2"></a><span class="kw">help</span>(<span class="dt">package=</span>foreign)</span></code></pre></div>
+
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-manipulation-in-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-GettingstartedwithR.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

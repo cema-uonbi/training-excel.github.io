@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Importing | Data Wrangling and Analysis with R</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Importing | Data Wrangling and Analysis with R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Importing | Data Wrangling and Analysis with R" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Centre for Epidemiological Modelling and Analysis" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="elementary-statistics.html"/>
+<link rel="next" href="correction-tables.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#why-r"><i class="fa fa-check"></i><b>1.1</b> Why R?</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#what-can-r-do"><i class="fa fa-check"></i><b>1.2</b> What can R do?</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#basics-of-r"><i class="fa fa-check"></i><b>1.3</b> Basics of R</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#the-r-console"><i class="fa fa-check"></i><b>1.4</b> The <strong>R</strong> console</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#r-workspaces"><i class="fa fa-check"></i><b>1.5</b> R workspaces</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#useful-tips-for-r"><i class="fa fa-check"></i><b>1.6</b> Useful tips for <strong>R</strong></a></li>
+<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#r-resources-and-finding-help"><i class="fa fa-check"></i><b>1.7</b> <strong>R</strong> resources and finding help</a></li>
+<li class="chapter" data-level="1.8" data-path="index.html"><a href="index.html#r-architecture"><i class="fa fa-check"></i><b>1.8</b> <strong>R</strong> architecture</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html"><i class="fa fa-check"></i><b>2</b> Getting started with R</a><ul>
+<li class="chapter" data-level="2.1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#installing-and-using-r-packages"><i class="fa fa-check"></i><b>2.1</b> Installing and using <strong>R</strong> packages</a></li>
+<li class="chapter" data-level="2.2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#creating-objects-in-r"><i class="fa fa-check"></i><b>2.2</b> Creating objects in <strong>R</strong></a></li>
+<li class="chapter" data-level="2.3" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#functions-in-r"><i class="fa fa-check"></i><b>2.3</b> Functions in <strong>R</strong></a></li>
+<li class="chapter" data-level="2.4" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#data-types-and-importation"><i class="fa fa-check"></i><b>2.4</b> Data types and importation</a></li>
+<li class="chapter" data-level="2.5" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#importing-and-data-manipulation-in-r"><i class="fa fa-check"></i><b>2.5</b> Importing and Data manipulation in R</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#in-built-datasets"><i class="fa fa-check"></i><b>2.5.1</b> In-built datasets</a></li>
+<li class="chapter" data-level="2.5.2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#import-data-from-external-files"><i class="fa fa-check"></i><b>2.5.2</b> Import data from ``external" files</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html"><i class="fa fa-check"></i><b>3</b> Data Manipulation in R</a><ul>
+<li class="chapter" data-level="3.1" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#dereferencing"><i class="fa fa-check"></i><b>3.1</b> Dereferencing</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#merging-data"><i class="fa fa-check"></i><b>3.1.1</b> Merging data</a></li>
+<li class="chapter" data-level="3.1.2" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#subsetting-data"><i class="fa fa-check"></i><b>3.1.2</b> Subsetting data</a></li>
+<li class="chapter" data-level="3.1.3" data-path="data-manipulation-in-r.html"><a href="data-manipulation-in-r.html#substring"><i class="fa fa-check"></i><b>3.1.3</b> Substring</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="elementary-statistics.html"><a href="elementary-statistics.html"><i class="fa fa-check"></i><b>4</b> Elementary Statistics</a><ul>
+<li class="chapter" data-level="4.1" data-path="elementary-statistics.html"><a href="elementary-statistics.html#classical-statistical-tests"><i class="fa fa-check"></i><b>4.1</b> Classical statistical tests</a></li>
+<li class="chapter" data-level="4.2" data-path="elementary-statistics.html"><a href="elementary-statistics.html#two-sample-t-test-for-means-comparing-two-independent-means"><i class="fa fa-check"></i><b>4.2</b> Two-sample t-test for means (comparing two independent means)</a></li>
+<li class="chapter" data-level="4.3" data-path="elementary-statistics.html"><a href="elementary-statistics.html#paired-t-test-for-means-comparing-two-dependent-means"><i class="fa fa-check"></i><b>4.3</b> Paired t-test for means (comparing two dependent means)</a></li>
+<li class="chapter" data-level="4.4" data-path="elementary-statistics.html"><a href="elementary-statistics.html#comparing-two-proportions---binomial-test"><i class="fa fa-check"></i><b>4.4</b> Comparing two proportions - binomial test</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="elementary-statistics.html"><a href="elementary-statistics.html#chi-square-test"><i class="fa fa-check"></i><b>4.4.1</b> Chi-square test</a></li>
+<li class="chapter" data-level="4.4.2" data-path="elementary-statistics.html"><a href="elementary-statistics.html#one-way-analysis-of-variance-anova"><i class="fa fa-check"></i><b>4.4.2</b> One-way analysis of Variance (ANOVA)</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="elementary-statistics.html"><a href="elementary-statistics.html#data-wranglingdata-management-and-cleaning-in-r"><i class="fa fa-check"></i><b>4.5</b> Data wrangling:Data management and cleaning in R</a></li>
+<li class="chapter" data-level="4.6" data-path="elementary-statistics.html"><a href="elementary-statistics.html#tools-for-manipulating-data"><i class="fa fa-check"></i><b>4.6</b> Tools for manipulating data</a></li>
+<li class="chapter" data-level="4.7" data-path="elementary-statistics.html"><a href="elementary-statistics.html#tools-for-manipulating-data-1"><i class="fa fa-check"></i><b>4.7</b> Tools for manipulating data</a></li>
+<li class="chapter" data-level="4.8" data-path="elementary-statistics.html"><a href="elementary-statistics.html#making-datasets-tidy"><i class="fa fa-check"></i><b>4.8</b> Making datasets tidy</a></li>
+<li class="chapter" data-level="4.9" data-path="elementary-statistics.html"><a href="elementary-statistics.html#pipes-in-r"><i class="fa fa-check"></i><b>4.9</b> Pipes in R %&gt;%</a></li>
+<li class="chapter" data-level="4.10" data-path="elementary-statistics.html"><a href="elementary-statistics.html#making-datasets-tidy-1"><i class="fa fa-check"></i><b>4.10</b> Making datasets tidy</a></li>
+<li class="chapter" data-level="4.11" data-path="elementary-statistics.html"><a href="elementary-statistics.html#gather-multiple-columns-gathered-into-key-value-pairs"><i class="fa fa-check"></i><b>4.11</b> gather(): multiple columns gathered into key-value pairs</a></li>
+<li class="chapter" data-level="4.12" data-path="elementary-statistics.html"><a href="elementary-statistics.html#making-datasets-tidy-2"><i class="fa fa-check"></i><b>4.12</b> Making datasets tidy</a></li>
+<li class="chapter" data-level="4.13" data-path="elementary-statistics.html"><a href="elementary-statistics.html#making-datasets-tidy-3"><i class="fa fa-check"></i><b>4.13</b> Making datasets tidy</a></li>
+<li class="chapter" data-level="4.14" data-path="elementary-statistics.html"><a href="elementary-statistics.html#grouping-data"><i class="fa fa-check"></i><b>4.14</b> Grouping data</a></li>
+<li class="chapter" data-level="4.15" data-path="elementary-statistics.html"><a href="elementary-statistics.html#separate-splitting-a-single-variable-to-several-variables"><i class="fa fa-check"></i><b>4.15</b> separate() # splitting a single variable to several variables</a></li>
+<li class="chapter" data-level="4.16" data-path="elementary-statistics.html"><a href="elementary-statistics.html#separate-splitting-a-single-variable-to-several-variables-1"><i class="fa fa-check"></i><b>4.16</b> separate(): splitting a single variable to several variables</a></li>
+<li class="chapter" data-level="4.17" data-path="elementary-statistics.html"><a href="elementary-statistics.html#separate-splitting-a-single-variable-to-several-variables-2"><i class="fa fa-check"></i><b>4.17</b> separate(): splitting a single variable to several variables</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="importing.html"><a href="importing.html"><i class="fa fa-check"></i><b>5</b> Importing</a><ul>
+<li class="chapter" data-level="5.1" data-path="importing.html"><a href="importing.html#a-sample-data-set"><i class="fa fa-check"></i><b>5.1</b> A sample data set</a></li>
+<li class="chapter" data-level="5.2" data-path="importing.html"><a href="importing.html#a-sample-data-set-1"><i class="fa fa-check"></i><b>5.2</b> A sample data set</a></li>
+<li class="chapter" data-level="5.3" data-path="importing.html"><a href="importing.html#a-sample-data-set-2"><i class="fa fa-check"></i><b>5.3</b> A sample data set</a></li>
+<li class="chapter" data-level="5.4" data-path="importing.html"><a href="importing.html#check-data-consistency"><i class="fa fa-check"></i><b>5.4</b> check data consistency</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="importing.html"><a href="importing.html#filter---rowsobservations-with-matching-conditions"><i class="fa fa-check"></i><b>5.4.1</b> filter() - rows/observations with matching conditions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="importing.html"><a href="importing.html#check-data-consistency-1"><i class="fa fa-check"></i><b>5.5</b> check data consistency</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="importing.html"><a href="importing.html#filter---rowsobservations-with-matching-conditions-1"><i class="fa fa-check"></i><b>5.5.1</b> filter() - rows/observations with matching conditions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="importing.html"><a href="importing.html#check-data-consistency-2"><i class="fa fa-check"></i><b>5.6</b> check data consistency</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="importing.html"><a href="importing.html#distinct"><i class="fa fa-check"></i><b>5.6.1</b> distinct()</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="importing.html"><a href="importing.html#check-data-consistency-3"><i class="fa fa-check"></i><b>5.7</b> check data consistency</a></li>
+<li class="chapter" data-level="5.8" data-path="importing.html"><a href="importing.html#check-data-consistency-4"><i class="fa fa-check"></i><b>5.8</b> check data consistency</a></li>
+<li class="chapter" data-level="5.9" data-path="importing.html"><a href="importing.html#data-maintenance"><i class="fa fa-check"></i><b>5.9</b> Data maintenance</a></li>
+<li class="chapter" data-level="5.10" data-path="importing.html"><a href="importing.html#redundancy"><i class="fa fa-check"></i><b>5.10</b> Redundancy</a></li>
+<li class="chapter" data-level="5.11" data-path="importing.html"><a href="importing.html#tidy-data"><i class="fa fa-check"></i><b>5.11</b> Tidy data</a></li>
+<li class="chapter" data-level="5.12" data-path="importing.html"><a href="importing.html#relational"><i class="fa fa-check"></i><b>5.12</b> Relational</a></li>
+<li class="chapter" data-level="5.13" data-path="importing.html"><a href="importing.html#flow"><i class="fa fa-check"></i><b>5.13</b> Flow</a></li>
+<li class="chapter" data-level="5.14" data-path="importing.html"><a href="importing.html#making-relational-tables"><i class="fa fa-check"></i><b>5.14</b> Making relational tables</a></li>
+<li class="chapter" data-level="5.15" data-path="importing.html"><a href="importing.html#making-relational-tables-1"><i class="fa fa-check"></i><b>5.15</b> Making relational tables</a></li>
+<li class="chapter" data-level="5.16" data-path="importing.html"><a href="importing.html#making-relational-tables-2"><i class="fa fa-check"></i><b>5.16</b> Making relational tables</a></li>
+<li class="chapter" data-level="5.17" data-path="importing.html"><a href="importing.html#making-relational-tables-3"><i class="fa fa-check"></i><b>5.17</b> Making relational tables</a></li>
+<li class="chapter" data-level="5.18" data-path="importing.html"><a href="importing.html#calves-follow-up-data"><i class="fa fa-check"></i><b>5.18</b> Calves follow-up data</a></li>
+<li class="chapter" data-level="5.19" data-path="importing.html"><a href="importing.html#explore-ranges"><i class="fa fa-check"></i><b>5.19</b> Explore ranges</a></li>
+<li class="chapter" data-level="5.20" data-path="importing.html"><a href="importing.html#section"><i class="fa fa-check"></i><b>5.20</b> </a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="correction-tables.html"><a href="correction-tables.html"><i class="fa fa-check"></i><b>6</b> Correction tables</a><ul>
+<li class="chapter" data-level="6.1" data-path="correction-tables.html"><a href="correction-tables.html#mistakes---an-obvious-error-in-your-data-how-do-we-fix-it"><i class="fa fa-check"></i><b>6.1</b> Mistakes - an obvious error in your data, how do we fix it?</a></li>
+<li class="chapter" data-level="6.2" data-path="correction-tables.html"><a href="correction-tables.html#a-table"><i class="fa fa-check"></i><b>6.2</b> A table</a></li>
+<li class="chapter" data-level="6.3" data-path="correction-tables.html"><a href="correction-tables.html#patching"><i class="fa fa-check"></i><b>6.3</b> Patching</a></li>
+<li class="chapter" data-level="6.4" data-path="correction-tables.html"><a href="correction-tables.html#finish-the-patch-being-careful"><i class="fa fa-check"></i><b>6.4</b> Finish the patch, being careful</a></li>
+<li class="chapter" data-level="6.5" data-path="correction-tables.html"><a href="correction-tables.html#factors"><i class="fa fa-check"></i><b>6.5</b> Factors</a></li>
+<li class="chapter" data-level="6.6" data-path="correction-tables.html"><a href="correction-tables.html#play-with-your-data"><i class="fa fa-check"></i><b>6.6</b> Play with your data</a></li>
+<li class="chapter" data-level="6.7" data-path="correction-tables.html"><a href="correction-tables.html#try-them-out"><i class="fa fa-check"></i><b>6.7</b> Try them out</a></li>
+<li class="chapter" data-level="6.8" data-path="correction-tables.html"><a href="correction-tables.html#summary"><i class="fa fa-check"></i><b>6.8</b> Summary</a></li>
+<li class="chapter" data-level="6.9" data-path="correction-tables.html"><a href="correction-tables.html#kasai-correction-exercise.."><i class="fa fa-check"></i><b>6.9</b> ..kasai Correction exercise..</a></li>
+<li class="chapter" data-level="6.10" data-path="correction-tables.html"><a href="correction-tables.html#section-1"><i class="fa fa-check"></i><b>6.10</b> </a></li>
+<li class="chapter" data-level="6.11" data-path="correction-tables.html"><a href="correction-tables.html#section-2"><i class="fa fa-check"></i><b>6.11</b> …</a></li>
+<li class="chapter" data-level="6.12" data-path="correction-tables.html"><a href="correction-tables.html#section-3"><i class="fa fa-check"></i><b>6.12</b> …</a></li>
+<li class="chapter" data-level="6.13" data-path="correction-tables.html"><a href="correction-tables.html#kasai-correction-exercise"><i class="fa fa-check"></i><b>6.13</b> kasai correction exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="linear-regressions.html"><a href="linear-regressions.html"><i class="fa fa-check"></i><b>7</b> Linear Regressions</a><ul>
+<li class="chapter" data-level="7.0.1" data-path="linear-regressions.html"><a href="linear-regressions.html#model-diagnostics"><i class="fa fa-check"></i><b>7.0.1</b> Model Diagnostics</a></li>
+<li class="chapter" data-level="7.1" data-path="linear-regressions.html"><a href="linear-regressions.html#multiple-linear-regressions"><i class="fa fa-check"></i><b>7.1</b> Multiple linear regressions</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="logistic-regressions.html"><a href="logistic-regressions.html"><i class="fa fa-check"></i><b>8</b> Logistic regressions</a></li>
+<li class="chapter" data-level="9" data-path="EDA.html"><a href="EDA.html"><i class="fa fa-check"></i><b>9</b> Exploratory Data Analysis</a><ul>
+<li class="chapter" data-level="9.0.1" data-path="EDA.html"><a href="EDA.html#sample-of-one-variable"><i class="fa fa-check"></i><b>9.0.1</b> Sample of one variable</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Wrangling and Analysis with R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="importing" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Importing</h1>
+<div id="a-sample-data-set" class="section level2">
+<h2><span class="header-section-number">5.1</span> A sample data set</h2>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="importing.html#cb18-1"></a>dogdemography &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;DogcohortDemographics.csv&quot;</span>)</span>
+<span id="cb18-2"><a href="importing.html#cb18-2"></a><span class="kw">dim</span>(dogdemography)</span></code></pre></div>
+<pre><code>## [1] 1207   11</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="importing.html#cb20-1"></a>dogdemography[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,]</span></code></pre></div>
+<pre><code>## # A tibble: 3 x 11
+##   IntDate HousehldID VillageID HhMmbrs OwnDogs DgsOwnd AdltDgs Puppies DogDied
+##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+## 1 1/30/17 13-172-2          13       4       0       0       0       0       0
+## 2 1/30/17 2-87-7             2       6       0       0       0       0       0
+## 3 1/30/17 49-1-1            49       1       0       0       0       0       0
+## # … with 2 more variables: NumDd &lt;dbl&gt;, DogBite &lt;dbl&gt;</code></pre>
+</div>
+<div id="a-sample-data-set-1" class="section level2">
+<h2><span class="header-section-number">5.2</span> A sample data set</h2>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="importing.html#cb22-1"></a><span class="co">## rename the variables for clarity</span></span>
+<span id="cb22-2"><a href="importing.html#cb22-2"></a>dogdemography &lt;-<span class="st"> </span><span class="kw">rename</span>(dogdemography</span>
+<span id="cb22-3"><a href="importing.html#cb22-3"></a>                , <span class="dt">interviewDate =</span> IntDate <span class="co"># format as date</span></span>
+<span id="cb22-4"><a href="importing.html#cb22-4"></a>                , <span class="dt">householdID =</span> HousehldID <span class="co"># format as character</span></span>
+<span id="cb22-5"><a href="importing.html#cb22-5"></a>                , <span class="dt">villageID =</span> VillageID <span class="co"># format as character</span></span>
+<span id="cb22-6"><a href="importing.html#cb22-6"></a>                , <span class="dt">householdMembers =</span> HhMmbrs <span class="co"># format as integer</span></span>
+<span id="cb22-7"><a href="importing.html#cb22-7"></a>                , <span class="dt">ownDogs =</span> OwnDogs <span class="co"># format as logical</span></span>
+<span id="cb22-8"><a href="importing.html#cb22-8"></a>                , <span class="dt">numDogsOwned =</span> DgsOwnd <span class="co"># format as integer</span></span>
+<span id="cb22-9"><a href="importing.html#cb22-9"></a>                , <span class="dt">adultDogsOwned =</span> AdltDgs <span class="co"># format as integer</span></span>
+<span id="cb22-10"><a href="importing.html#cb22-10"></a>                , <span class="dt">puppiesOwned =</span> Puppies <span class="co"># format as integer</span></span>
+<span id="cb22-11"><a href="importing.html#cb22-11"></a>                , <span class="dt">dogDiedPastMonth =</span> DogDied <span class="co"># format as logical</span></span>
+<span id="cb22-12"><a href="importing.html#cb22-12"></a>                , <span class="dt">numDogsDiedPastMonth =</span> NumDd <span class="co"># format as integer</span></span>
+<span id="cb22-13"><a href="importing.html#cb22-13"></a>                , <span class="dt">dogBitesPastMonth =</span> DogBite <span class="co"># format as logical </span></span>
+<span id="cb22-14"><a href="importing.html#cb22-14"></a>                )</span></code></pre></div>
+</div>
+<div id="a-sample-data-set-2" class="section level2">
+<h2><span class="header-section-number">5.3</span> A sample data set</h2>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="importing.html#cb23-1"></a><span class="kw">print</span>(dogdemography <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(.,villageID) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize</span>(.,<span class="dt">count =</span> <span class="kw">n</span>()) )</span></code></pre></div>
+<pre><code>## # A tibble: 10 x 2
+##    villageID count
+##        &lt;dbl&gt; &lt;int&gt;
+##  1         2   158
+##  2        10   126
+##  3        13   215
+##  4        28   105
+##  5        35    77
+##  6        49   139
+##  7        53    84
+##  8        55   215
+##  9        67    49
+## 10        68    39</code></pre>
+</div>
+<div id="check-data-consistency" class="section level2">
+<h2><span class="header-section-number">5.4</span> check data consistency</h2>
+<div id="filter---rowsobservations-with-matching-conditions" class="section level3">
+<h3><span class="header-section-number">5.4.1</span> filter() - rows/observations with matching conditions</h3>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="importing.html#cb25-1"></a><span class="kw">print</span>(dogdemography</span>
+<span id="cb25-2"><a href="importing.html#cb25-2"></a><span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(.,adultDogsOwned<span class="op">+</span>puppiesOwned <span class="op">==</span><span class="st"> </span>numDogsOwned)</span>
+<span id="cb25-3"><a href="importing.html#cb25-3"></a><span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(householdID,adultDogsOwned,puppiesOwned,numDogsOwned))</span></code></pre></div>
+<pre><code>## # A tibble: 1,207 x 4
+##    householdID adultDogsOwned puppiesOwned numDogsOwned
+##    &lt;chr&gt;                &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;
+##  1 13-172-2                 0            0            0
+##  2 2-87-7                   0            0            0
+##  3 49-1-1                   0            0            0
+##  4 13-224-3                 1            0            1
+##  5 2-109-5                  0            0            0
+##  6 67-9-2                   0            0            0
+##  7 49-256-2                 0            0            0
+##  8 2-155-4                  0            0            0
+##  9 49-256-3                 0            0            0
+## 10 13-8-9                   0            0            0
+## # … with 1,197 more rows</code></pre>
+</div>
+</div>
+<div id="check-data-consistency-1" class="section level2">
+<h2><span class="header-section-number">5.5</span> check data consistency</h2>
+<div id="filter---rowsobservations-with-matching-conditions-1" class="section level3">
+<h3><span class="header-section-number">5.5.1</span> filter() - rows/observations with matching conditions</h3>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="importing.html#cb27-1"></a><span class="kw">print</span>(dogdemography</span>
+<span id="cb27-2"><a href="importing.html#cb27-2"></a><span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(.,adultDogsOwned<span class="op">+</span>puppiesOwned <span class="op">!=</span><span class="st"> </span>numDogsOwned)</span>
+<span id="cb27-3"><a href="importing.html#cb27-3"></a><span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(householdID,adultDogsOwned,puppiesOwned,numDogsOwned))</span></code></pre></div>
+<pre><code>## # A tibble: 0 x 4
+## # … with 4 variables: householdID &lt;chr&gt;, adultDogsOwned &lt;dbl&gt;,
+## #   puppiesOwned &lt;dbl&gt;, numDogsOwned &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<div id="check-data-consistency-2" class="section level2">
+<h2><span class="header-section-number">5.6</span> check data consistency</h2>
+<div id="distinct" class="section level3">
+<h3><span class="header-section-number">5.6.1</span> distinct()</h3>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="importing.html#cb29-1"></a><span class="kw">print</span>(dogdemography</span>
+<span id="cb29-2"><a href="importing.html#cb29-2"></a><span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(.,numDogsOwned,adultDogsOwned,puppiesOwned)</span>
+<span id="cb29-3"><a href="importing.html#cb29-3"></a><span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(adultDogsOwned,puppiesOwned,numDogsOwned)</span>
+<span id="cb29-4"><a href="importing.html#cb29-4"></a><span class="op">%&gt;%</span><span class="st"> </span><span class="kw">distinct</span>(.) )</span></code></pre></div>
+<pre><code>## # A tibble: 20 x 3
+## # Groups:   numDogsOwned, adultDogsOwned, puppiesOwned [20]
+##    adultDogsOwned puppiesOwned numDogsOwned
+##             &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;
+##  1              0            0            0
+##  2              1            0            1
+##  3              1            1            2
+##  4              4            0            4
+##  5              3            0            3
+##  6              2            0            2
+##  7              5            0            5
+##  8              2            1            3
+##  9              0            2            2
+## 10              0            1            1
+## 11              1            3            4
+## 12              3            2            5
+## 13              1            2            3
+## 14              1            4            5
+## 15              2            5            7
+## 16              2            3            5
+## 17              2            2            4
+## 18              1            5            6
+## 19              6            0            6
+## 20              6            4           10</code></pre>
+</div>
+</div>
+<div id="check-data-consistency-3" class="section level2">
+<h2><span class="header-section-number">5.7</span> check data consistency</h2>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="importing.html#cb31-1"></a><span class="kw">print</span>(dogdemography</span>
+<span id="cb31-2"><a href="importing.html#cb31-2"></a><span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(.,dogBitesPastMonth)</span>
+<span id="cb31-3"><a href="importing.html#cb31-3"></a><span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize</span>(.,<span class="dt">count =</span> <span class="kw">n</span>()) )</span></code></pre></div>
+<pre><code>## # A tibble: 3 x 2
+##   dogBitesPastMonth count
+##               &lt;dbl&gt; &lt;int&gt;
+## 1                 0  1205
+## 2                 1     1
+## 3                99     1</code></pre>
+</div>
+<div id="check-data-consistency-4" class="section level2">
+<h2><span class="header-section-number">5.8</span> check data consistency</h2>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="importing.html#cb33-1"></a>dogdemography &lt;-<span class="st"> </span>(dogdemography <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb33-2"><a href="importing.html#cb33-2"></a><span class="kw">mutate</span>(., <span class="dt">dogBitesPastMonth =</span> </span>
+<span id="cb33-3"><a href="importing.html#cb33-3"></a>      <span class="kw">ifelse</span>(dogBitesPastMonth<span class="op">==</span><span class="dv">99</span>,<span class="ot">NA</span>,dogBitesPastMonth))</span>
+<span id="cb33-4"><a href="importing.html#cb33-4"></a><span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(., <span class="dt">dogBitesPastMonthNEW =</span> <span class="kw">as.logical</span>(dogBitesPastMonth)))</span>
+<span id="cb33-5"><a href="importing.html#cb33-5"></a></span>
+<span id="cb33-6"><a href="importing.html#cb33-6"></a><span class="kw">print</span>(dogdemography</span>
+<span id="cb33-7"><a href="importing.html#cb33-7"></a><span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(.,dogBitesPastMonthNEW)</span>
+<span id="cb33-8"><a href="importing.html#cb33-8"></a><span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize</span>(.,<span class="dt">count =</span> <span class="kw">n</span>()) )</span></code></pre></div>
+<pre><code>## # A tibble: 3 x 2
+##   dogBitesPastMonthNEW count
+##   &lt;lgl&gt;                &lt;int&gt;
+## 1 FALSE                 1205
+## 2 TRUE                     1
+## 3 NA                       1</code></pre>
+<!-- ## Summarize -->
+<!-- * Check that numbers are numbers, dates are dates, etc. -->
+<!-- ```{r} -->
+<!-- villageTable <- (villageTable -->
+<!--    %>% mutate(village=as.factor(village)) -->
+<!-- ) -->
+<!-- summary(villageTable) -->
+<!-- ``` -->
+<!-- ## List -->
+<!-- * Make lists of what occurs with what (and how many times) -->
+<!-- ```{r} -->
+<!-- print(villageTable -->
+<!--    %>% group_by(vname, vu) -->
+<!--    %>% summarize(count = n()) -->
+<!-- ) -->
+<!-- ``` -->
+<!-- ## ... -->
+<!-- * The computer is your friend -->
+<!-- ```{r} -->
+<!-- print(villageTable -->
+<!--    %>% group_by(vname, vu) -->
+<!--    %>% summarize(count = n()) -->
+<!--    %>% filter(count>1) -->
+<!-- ) -->
+<!-- ``` -->
+<!-- ## ... -->
+<!-- * and you always want to check yourself -->
+<!-- ```{r} -->
+<!-- print(villageTable -->
+<!--    %>% group_by(vname) -->
+<!--    %>% summarize(count = n()) -->
+<!--    %>% filter(count>1) -->
+<!-- ) -->
+<!-- ``` -->
+<!-- ## Entering, maintaining and using data -->
+<!-- * These are different functions, and often call for different ways of formatting data -->
+<!-- * This is why we have computers -->
+<!-- ## Data entry  -->
+<!-- * Convenient for users -->
+<!-- * Some amount of redundancy is good (to catch errors) -->
+<!--    * Some amount of redundancy is good (to catch errors) -->
+<!-- * Often a "wide" format (related information on the same row) -->
+<!-- ## Data use  -->
+<!-- * Scanning for patterns and problems -->
+<!-- * Making tables for publication -->
+<!-- * Making data frames for statistical analysis -->
+</div>
+<div id="data-maintenance" class="section level2">
+<h2><span class="header-section-number">5.9</span> Data maintenance</h2>
+<ul>
+<li>Your database is
+<ul>
+<li>a logical construct
+<ul>
+<li>The core of the data that we maintain and validate</li>
+</ul></li>
+<li>maybe also a software construct
+<ul>
+<li>If you are using a database program</li>
+</ul></li>
+</ul></li>
+<li>Data in the database is:
+<ul>
+<li>Non-redundant</li>
+<li>Relational</li>
+<li>Often in a “long” format (to signal values that are comparable)</li>
+</ul></li>
+</ul>
+</div>
+<div id="redundancy" class="section level2">
+<h2><span class="header-section-number">5.10</span> Redundancy</h2>
+<p>You don’t want any redundancy in your database (although you might for entry or analysis)</p>
+<ul>
+<li><p>Removing redundancies is a great way to check data integrity</p></li>
+<li><p>Non-redundant information can be updated conveniently</p>
+<ul>
+<li>and without introducing new errors</li>
+<li>and without introducing inconsistencies</li>
+</ul></li>
+</ul>
+<!-- ## Example -->
+<!-- ```{r} -->
+<!-- head(parasiteTable) -->
+<!-- ``` -->
+</div>
+<div id="tidy-data" class="section level2">
+<h2><span class="header-section-number">5.11</span> Tidy data</h2>
+<ul>
+<li><p>No redundancy</p></li>
+<li><p>Break data into separate tables following the logic of the data</p></li>
+<li><p>Clear “keys” to describe the information in each row</p>
+<ul>
+<li>Non-redundant, unique identifiers</li>
+<li>Village table has village (number) as the key</li>
+<li>Measurement table has id, survey as the key’</li>
+</ul></li>
+</ul>
+</div>
+<div id="relational" class="section level2">
+<h2><span class="header-section-number">5.12</span> Relational</h2>
+<p>Break data into logical tables</p>
+<ul>
+<li>Information at the level where it belongs:
+<ul>
+<li>Sampling event</li>
+<li>Individual</li>
+<li>Household</li>
+<li>Village</li>
+<li>Village group</li>
+</ul></li>
+</ul>
+</div>
+<div id="flow" class="section level2">
+<h2><span class="header-section-number">5.13</span> Flow</h2>
+<ul>
+<li><p>Put input data into a tidy, relational form</p>
+<ul>
+<li>Clean on the way</li>
+<li>This is your database, whether you use database software or not</li>
+</ul></li>
+<li><p>Clean, maintain and merge data in the database</p></li>
+<li><p>Export files for analysis, presentation, etc.</p>
+<ul>
+<li>You may wind up rebuilding files like the ones you started with</li>
+<li>They are now quality-checked, and may also be easier to update</li>
+</ul></li>
+</ul>
+</div>
+<div id="making-relational-tables" class="section level2">
+<h2><span class="header-section-number">5.14</span> Making relational tables</h2>
+<p>If we had data like the <code>Calves follow-up with infectious status data</code>, we would want to break it into</p>
+<ul>
+<li><p>A table at the level of calves (with values/characteristics of calves that don’t change)</p></li>
+<li><p>A table at the level of follow-up events and corresponding variable measurements</p></li>
+</ul>
+<p>This process leads to improved clarity, <strong>and improved cleaning</strong></p>
+</div>
+<div id="making-relational-tables-1" class="section level2">
+<h2><span class="header-section-number">5.15</span> Making relational tables</h2>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="importing.html#cb35-1"></a><span class="co"># calves_init &lt;- read_csv(&quot;Data/ideal1.csv&quot;)</span></span>
+<span id="cb35-2"><a href="importing.html#cb35-2"></a>calves_init</span></code></pre></div>
+<pre><code>## # A tibble: 30 x 6
+##    CalfID      CalfSex sublocation CADOB      ReasonsLoss RecruitWeight
+##    &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;            &lt;dbl&gt;         &lt;dbl&gt;
+##  1 CA010110028       1 East Siboti 31/07/2009           7          19  
+##  2 CA010210036       2 Kidera      12/3/2008            7          15  
+##  3 CA010210038       1 Kidera      18/04/2008          NA          20  
+##  4 CA010210041       1 Kidera      27/06/2008          NA          16.5
+##  5 CA010310062       2 Kokare      18/11/2007          NA          14  
+##  6 CA010310064       1 Kokare      3/1/2008             7          16.5
+##  7 CA020510127       2 Kamunuoit   24/04/2008          NA          16  
+##  8 CA020610151       1 Karisa      3/11/2007           NA          19  
+##  9 CA020610152       1 Karisa      4/10/2007           NA          23  
+## 10 CA030810223       1 Igero       16/08/2008          NA          29  
+## # … with 20 more rows</code></pre>
+</div>
+<div id="making-relational-tables-2" class="section level2">
+<h2><span class="header-section-number">5.16</span> Making relational tables</h2>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="importing.html#cb37-1"></a><span class="co">#calves_follow1 &lt;- calves_follow %&gt;% </span></span>
+<span id="cb37-2"><a href="importing.html#cb37-2"></a>  <span class="co">#gather(infection, status, Theileria.spp.:Q.Strongyle.eggs) %&gt;%</span></span>
+<span id="cb37-3"><a href="importing.html#cb37-3"></a>  <span class="co">#select(-ManualPCV) %&gt;%</span></span>
+<span id="cb37-4"><a href="importing.html#cb37-4"></a>  <span class="co">#arrange(CalfID, VisitDate, status)</span></span>
+<span id="cb37-5"><a href="importing.html#cb37-5"></a>calves_follow1</span></code></pre></div>
+<pre><code>## # A tibble: 1,080 x 6
+##    VisitID   CalfID      VisitDate  Weight infection        status
+##    &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;             &lt;dbl&gt;
+##  1 VRC010028 CA010110028 3/8/2009       19 Theileria.spp.        0
+##  2 VRC010028 CA010110028 3/8/2009       19 ELISA_mutans         NA
+##  3 VRC010028 CA010110028 3/8/2009       19 ELISA_parva          NA
+##  4 VRC010028 CA010110028 3/8/2009       19 Q.Strongyle.eggs     NA
+##  5 VRC010036 CA010210036 18/03/2008     15 Theileria.spp.        0
+##  6 VRC010036 CA010210036 18/03/2008     15 ELISA_mutans          0
+##  7 VRC010036 CA010210036 18/03/2008     15 ELISA_parva           0
+##  8 VRC010036 CA010210036 18/03/2008     15 Q.Strongyle.eggs     NA
+##  9 VRC160036 CA010210036 2/7/2008       34 Theileria.spp.        0
+## 10 VRC160036 CA010210036 2/7/2008       34 ELISA_mutans          0
+## # … with 1,070 more rows</code></pre>
+</div>
+<div id="making-relational-tables-3" class="section level2">
+<h2><span class="header-section-number">5.17</span> Making relational tables</h2>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="importing.html#cb39-1"></a>calves_all &lt;-<span class="st"> </span>calves_init <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">left_join</span>(calves_follow1, <span class="dt">by=</span><span class="st">&quot;CalfID&quot;</span>)</span>
+<span id="cb39-2"><a href="importing.html#cb39-2"></a>calves_all</span></code></pre></div>
+<pre><code>## # A tibble: 1,080 x 11
+##    CalfID  CalfSex sublocation CADOB ReasonsLoss RecruitWeight VisitID VisitDate
+##    &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;       &lt;dbl&gt;         &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;    
+##  1 CA0101…       1 East Siboti 31/0…           7            19 VRC010… 3/8/2009 
+##  2 CA0101…       1 East Siboti 31/0…           7            19 VRC010… 3/8/2009 
+##  3 CA0101…       1 East Siboti 31/0…           7            19 VRC010… 3/8/2009 
+##  4 CA0101…       1 East Siboti 31/0…           7            19 VRC010… 3/8/2009 
+##  5 CA0102…       2 Kidera      12/3…           7            15 VRC010… 18/03/20…
+##  6 CA0102…       2 Kidera      12/3…           7            15 VRC010… 18/03/20…
+##  7 CA0102…       2 Kidera      12/3…           7            15 VRC010… 18/03/20…
+##  8 CA0102…       2 Kidera      12/3…           7            15 VRC010… 18/03/20…
+##  9 CA0102…       2 Kidera      12/3…           7            15 VRC160… 2/7/2008 
+## 10 CA0102…       2 Kidera      12/3…           7            15 VRC160… 2/7/2008 
+## # … with 1,070 more rows, and 3 more variables: Weight &lt;dbl&gt;, infection &lt;chr&gt;,
+## #   status &lt;dbl&gt;</code></pre>
+</div>
+<div id="calves-follow-up-data" class="section level2">
+<h2><span class="header-section-number">5.18</span> Calves follow-up data</h2>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="importing.html#cb41-1"></a><span class="kw">print</span>(calves_all</span>
+<span id="cb41-2"><a href="importing.html#cb41-2"></a>    <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(CalfID, VisitID, status)</span>
+<span id="cb41-3"><a href="importing.html#cb41-3"></a>    <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize</span>(<span class="dt">count=</span><span class="kw">n</span>()) )</span></code></pre></div>
+<pre><code>## `summarise()` has grouped output by &#39;CalfID&#39;, &#39;VisitID&#39;. You can override using the `.groups` argument.</code></pre>
+<pre><code>## # A tibble: 705 x 4
+## # Groups:   CalfID, VisitID [270]
+##    CalfID      VisitID   status count
+##    &lt;chr&gt;       &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;
+##  1 CA010110028 VRC010028      0     1
+##  2 CA010110028 VRC010028     NA     3
+##  3 CA010210036 VRC010036      0     3
+##  4 CA010210036 VRC010036     NA     1
+##  5 CA010210036 VRC060036      0     3
+##  6 CA010210036 VRC060036    250     1
+##  7 CA010210036 VRC110036      0     3
+##  8 CA010210036 VRC110036   1250     1
+##  9 CA010210036 VRC160036      0     3
+## 10 CA010210036 VRC160036   2300     1
+## # … with 695 more rows</code></pre>
+</div>
+<div id="explore-ranges" class="section level2">
+<h2><span class="header-section-number">5.19</span> Explore ranges</h2>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="importing.html#cb44-1"></a>pophist &lt;-<span class="st"> </span>(<span class="kw">ggplot</span>(calves_init, <span class="kw">aes</span>(<span class="dt">x=</span>RecruitWeight))</span>
+<span id="cb44-2"><a href="importing.html#cb44-2"></a>    <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>() <span class="op">+</span><span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;Weight in Kgs&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Count&quot;</span>) <span class="op">+</span></span>
+<span id="cb44-3"><a href="importing.html#cb44-3"></a><span class="st">      </span><span class="kw">theme_bw</span>() <span class="op">+</span></span>
+<span id="cb44-4"><a href="importing.html#cb44-4"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">20</span>))<span class="op">+</span></span>
+<span id="cb44-5"><a href="importing.html#cb44-5"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.y=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">20</span>))<span class="op">+</span></span>
+<span id="cb44-6"><a href="importing.html#cb44-6"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">text =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">24</span>))</span>
+<span id="cb44-7"><a href="importing.html#cb44-7"></a>)</span></code></pre></div>
+</div>
+<div id="section" class="section level2">
+<h2><span class="header-section-number">5.20</span> </h2>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="elementary-statistics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="correction-tables.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/03-DataWrangling.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
